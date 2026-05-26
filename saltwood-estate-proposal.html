@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Saltwood Estate — A Proposal for a Hinterland Hotel, Berry NSW</title>
+<meta name="description" content="A confidential business proposal for Saltwood Estate, a 60-key ultra-luxury hotel set in the Berry-Jamberoo hinterland of the NSW South Coast." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Italiana&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#f3ece0;
+    --parchment-deep:#ebe3d5;
+    --bone:#e7ddca;
+    --sand:#c9b89a;
+    --olive:#8a8268;
+    --terracotta:#b85c38;
+    --sienna:#a04420;
+    --bronze:#8b6f47;
+    --ink:#2d2a24;
+    --ink-soft:#5b554a;
+    --rule:#cdbfa5;
+    --shadow:rgba(45,42,36,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--parchment);color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-weight:300;line-height:1.65;letter-spacing:.005em;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{
+    background:
+      radial-gradient(1200px 800px at 80% -10%, rgba(184,92,56,.06), transparent 60%),
+      radial-gradient(900px 700px at -10% 30%, rgba(138,130,104,.07), transparent 60%),
+      var(--parchment);
+  }
+  /* faint paper grain */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+    background-image:
+      radial-gradient(rgba(45,42,36,.05) 1px, transparent 1px),
+      radial-gradient(rgba(45,42,36,.03) 1px, transparent 1px);
+    background-size:3px 3px, 7px 7px;
+    background-position:0 0, 1px 2px;
+    mix-blend-mode:multiply;
+  }
+  main{position:relative;z-index:1}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  @media (max-width:700px){.wrap{padding:0 22px}}
+
+  /* Display type */
+  h1,h2,h3,h4,.display,.numeral{
+    font-family:'Cormorant Garamond', 'Italiana', Georgia, serif;
+    font-weight:400;color:var(--ink);letter-spacing:.005em;
+  }
+  h1{font-family:'Italiana',serif;font-weight:400;font-size:clamp(48px,7vw,108px);line-height:.95;letter-spacing:.02em}
+  h2{font-size:clamp(34px,4.4vw,58px);line-height:1.05;margin:0 0 .35em}
+  h3{font-size:clamp(22px,2.2vw,30px);line-height:1.15;margin:0 0 .35em;font-weight:500}
+  h4{font-size:18px;line-height:1.3;margin:0 0 .4em;font-weight:500;letter-spacing:.04em}
+  .eyebrow{font-family:'Inter',sans-serif;font-weight:500;font-size:11px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--sienna);margin-bottom:18px}
+  p{margin:0 0 1.05em;color:var(--ink-soft);font-size:16.5px}
+  p.lede{font-size:21px;line-height:1.55;color:var(--ink);font-weight:300}
+  em.serif{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ink);font-weight:400}
+  .rule{height:1px;background:var(--rule);width:100%;margin:0;border:0}
+  .rule-short{height:1px;width:48px;background:var(--sienna);margin:0 0 28px;border:0}
+
+  /* ── HERO ─────────────────────────────────────────── */
+  .hero{position:relative;overflow:hidden;padding:48px 0 0}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:end;padding:60px 0 80px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px;padding:30px 0 50px}}
+  .hero-meta{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft)}
+  .hero-meta .mono{font-family:'Inter',sans-serif;font-weight:500}
+  .hero h1 .amp{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--sienna)}
+  .hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.2vw,28px);color:var(--ink-soft);margin-top:18px;max-width:36ch;line-height:1.4}
+  .hero-art{position:relative;aspect-ratio:4/5;border-radius:2px;overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(45,42,36,.35), 0 8px 20px -10px rgba(45,42,36,.2)}
+  .hero-caption{margin-top:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* SVG vignettes used as imagery */
+  .vignette{display:block;width:100%;height:100%}
+
+  /* ── SECTIONS ─────────────────────────────────────── */
+  section{padding:90px 0;position:relative}
+  @media (max-width:700px){section{padding:60px 0}}
+  .section-head{display:grid;grid-template-columns:200px 1fr;gap:60px;margin-bottom:50px}
+  @media (max-width:800px){.section-head{grid-template-columns:1fr;gap:18px;margin-bottom:32px}}
+  .section-num{font-family:'Italiana',serif;font-size:14px;letter-spacing:.32em;color:var(--sienna);padding-top:14px}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+  @media (max-width:800px){.two-col{grid-template-columns:1fr;gap:30px}}
+  .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:50px}
+  @media (max-width:800px){.three-col{grid-template-columns:1fr;gap:30px}}
+
+  /* Numeric callouts */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:20px}
+  @media (max-width:800px){.stats{grid-template-columns:repeat(2,1fr);gap:30px}}
+  .stat .n{font-family:'Italiana',serif;font-size:clamp(40px,5vw,64px);line-height:1;color:var(--ink);display:block}
+  .stat .l{display:block;margin-top:10px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+  .stat .n .small{font-size:.45em;color:var(--sienna);vertical-align:top;margin-left:4px;font-family:'Cormorant Garamond',serif;font-style:italic}
+
+  /* Cards & blocks */
+  .card{background:rgba(255,253,247,.6);border:1px solid var(--rule);padding:34px 32px;border-radius:2px}
+  .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.5vw,32px);line-height:1.35;color:var(--ink);max-width:32ch}
+  .quote-author{display:block;margin-top:16px;font-family:'Inter',sans-serif;font-style:normal;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sienna)}
+
+  /* Room schedule table */
+  table.schedule{width:100%;border-collapse:collapse;margin-top:18px;font-size:15px}
+  table.schedule th,table.schedule td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+  table.schedule th{font-family:'Inter',sans-serif;font-weight:500;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sienna);border-bottom:1px solid var(--sienna)}
+  table.schedule td.num{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);width:60px}
+  table.schedule td.adr{font-family:'Cormorant Garamond',serif;color:var(--ink);text-align:right;white-space:nowrap}
+
+  /* Competitor matrix */
+  table.matrix{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:10px}
+  table.matrix th,table.matrix td{padding:14px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+  table.matrix thead th{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--sienna);font-weight:500;border-bottom:1px solid var(--sienna)}
+  table.matrix tbody tr.us td{background:rgba(184,92,56,.07)}
+  table.matrix tbody tr.us td:first-child{color:var(--sienna);font-weight:500}
+  table.matrix .name{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--ink)}
+  @media (max-width:700px){table.matrix{font-size:13px}table.matrix th,table.matrix td{padding:10px 8px}}
+
+  /* Personas */
+  .persona{display:flex;gap:20px;align-items:flex-start;margin-top:24px}
+  .persona .dot{width:46px;height:46px;border-radius:50%;flex:0 0 46px;display:grid;place-items:center;
+    font-family:'Italiana',serif;color:#fff;font-size:16px;letter-spacing:.05em}
+
+  /* Financial pro-forma */
+  .proforma{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:0;border-top:1px solid var(--sienna)}
+  .proforma > div{padding:18px 16px;border-bottom:1px solid var(--rule);font-size:14.5px}
+  .proforma .h{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--sienna);border-bottom:1px solid var(--sienna);padding-top:10px;padding-bottom:14px}
+  .proforma .v{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--ink);text-align:right}
+  .proforma .label{color:var(--ink)}
+  .proforma .total{background:rgba(184,92,56,.06)}
+  @media (max-width:800px){.proforma{grid-template-columns:1.4fr 1fr 1fr 1fr;font-size:12.5px}.proforma > div{padding:12px 8px}.proforma .v{font-size:16px}}
+
+  /* Timeline */
+  .timeline{position:relative;margin-top:30px;padding-left:30px;border-left:1px solid var(--rule)}
+  .phase{position:relative;padding:0 0 32px}
+  .phase::before{content:"";position:absolute;left:-37px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--parchment);border:1.5px solid var(--sienna)}
+  .phase .when{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sienna);margin-bottom:6px}
+  .phase h4{margin-bottom:6px}
+
+  /* Pull section / dark interlude */
+  .interlude{background:var(--ink);color:#e9dfc9;padding:120px 0;margin:60px 0;position:relative;overflow:hidden}
+  .interlude::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(800px 600px at 80% 20%, rgba(184,92,56,.18), transparent 60%),
+      radial-gradient(700px 500px at 10% 80%, rgba(201,184,154,.12), transparent 60%);}
+  .interlude .wrap{position:relative}
+  .interlude h2{color:#f3ece0}
+  .interlude p{color:#cdbfa5}
+  .interlude .eyebrow{color:#d49069}
+
+  /* Footer */
+  footer{padding:80px 0 50px;border-top:1px solid var(--rule);margin-top:60px}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+  @media (max-width:800px){.foot-grid{grid-template-columns:1fr;gap:24px}}
+  .signature{font-family:'Italiana',serif;font-size:34px;line-height:1;letter-spacing:.04em}
+  .confidential{display:inline-block;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--sienna);padding:6px 12px;border:1px solid var(--sienna);border-radius:2px}
+
+  /* Decorative arches */
+  .arch{display:block;width:100%;aspect-ratio:3/4;border-radius:200px 200px 4px 4px;overflow:hidden;
+    box-shadow:0 24px 50px -28px rgba(45,42,36,.4)}
+  .arch.short{aspect-ratio:4/3;border-radius:140px 140px 4px 4px}
+  .img-stack{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:end}
+  .img-stack .arch:last-child{transform:translateY(40px)}
+  @media (max-width:800px){.img-stack .arch:last-child{transform:none}}
+
+  /* Stamp */
+  .stamp{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--sienna);color:var(--sienna);
+    font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;border-radius:2px;background:rgba(184,92,56,.04)}
+
+  /* Helper */
+  .muted{color:var(--ink-soft)}
+  .pad-t{padding-top:60px}
+  .center{text-align:center}
+  .max-prose{max-width:62ch}
+
+  @media print{
+    body{background:#fff}
+    .interlude{background:#fff;color:var(--ink)}
+    section{padding:40px 0;break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<main>
+
+<!-- ════════════════════════════════════════════════════
+     HERO
+═════════════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span class="mono">Confidential — Investment Proposal</span>
+      <span class="mono">Vol. I &nbsp;·&nbsp; Berry &amp; Jamberoo Hinterland, NSW</span>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">A Hinterland Hotel for the South Coast</div>
+        <h1>Saltwood<br/><span class="amp">&amp;</span> Stone</h1>
+        <div class="sub">A sixty-key estate in the soft country between Berry and&nbsp;Jamberoo — where the escarpment meets the&nbsp;sea.</div>
+        <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap">
+          <span class="stamp">Est. 2028 &nbsp;·&nbsp; 60 Keys</span>
+          <span class="stamp">Australia's Next Trophy Asset</span>
+        </div>
+      </div>
+
+      <figure style="margin:0">
+        <div class="hero-art">
+          <!-- Hero vignette: sun, escarpment, paddocks, pavilion -->
+          <svg class="vignette" viewBox="0 0 600 750" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-label="Imagined view of the Saltwood Estate at dusk">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e8c9a0"/>
+                <stop offset="55%" stop-color="#d49069"/>
+                <stop offset="100%" stop-color="#a04420"/>
+              </linearGradient>
+              <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8a8268"/>
+                <stop offset="100%" stop-color="#3d3a2e"/>
+              </linearGradient>
+              <linearGradient id="mid" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#b89a78"/>
+                <stop offset="100%" stop-color="#6e5d49"/>
+              </linearGradient>
+              <filter id="grain">
+                <feTurbulence baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+                <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/>
+              </filter>
+            </defs>
+            <rect width="600" height="750" fill="url(#sky)"/>
+            <!-- Sun -->
+            <circle cx="420" cy="260" r="68" fill="#f3ece0" opacity=".85"/>
+            <circle cx="420" cy="260" r="92" fill="#f3ece0" opacity=".18"/>
+            <!-- Escarpment far -->
+            <path d="M0,430 C90,395 160,408 230,400 C310,392 360,420 430,408 C500,398 560,418 600,410 L600,520 L0,520 Z" fill="#9a7a5c" opacity=".9"/>
+            <!-- Mid hills -->
+            <path d="M0,490 C80,470 140,496 220,484 C310,470 360,500 460,486 C520,478 570,498 600,492 L600,620 L0,620 Z" fill="url(#mid)"/>
+            <!-- Foreground paddock -->
+            <path d="M0,580 C100,560 240,600 360,580 C470,562 540,592 600,580 L600,750 L0,750 Z" fill="url(#land)"/>
+            <!-- Pavilion silhouette -->
+            <g transform="translate(170,520)" opacity=".95">
+              <rect x="0" y="20" width="160" height="46" fill="#2d2a24"/>
+              <polygon points="-8,20 168,20 150,4 10,4" fill="#2d2a24"/>
+              <rect x="14" y="34" width="14" height="22" fill="#e8c9a0" opacity=".85"/>
+              <rect x="44" y="34" width="14" height="22" fill="#e8c9a0" opacity=".85"/>
+              <rect x="74" y="34" width="14" height="22" fill="#e8c9a0" opacity=".85"/>
+              <rect x="104" y="34" width="14" height="22" fill="#e8c9a0" opacity=".85"/>
+              <rect x="134" y="34" width="14" height="22" fill="#e8c9a0" opacity=".85"/>
+            </g>
+            <!-- Trees -->
+            <g opacity=".85">
+              <ellipse cx="60" cy="600" rx="26" ry="34" fill="#2d2a24"/>
+              <rect x="58" y="598" width="4" height="40" fill="#2d2a24"/>
+              <ellipse cx="500" cy="610" rx="20" ry="28" fill="#2d2a24"/>
+              <rect x="499" y="608" width="3" height="34" fill="#2d2a24"/>
+              <ellipse cx="540" cy="618" rx="14" ry="20" fill="#2d2a24"/>
+            </g>
+            <!-- Grain overlay -->
+            <rect width="600" height="750" filter="url(#grain)"/>
+          </svg>
+        </div>
+        <figcaption class="hero-caption">An imagined view — dusk over the estate, escarpment beyond</figcaption>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════════
+     I. EXECUTIVE SUMMARY
+═════════════════════════════════════════════════════ -->
+<section id="summary">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">I &nbsp;— &nbsp; The Proposition</div>
+      <div>
+        <div class="eyebrow">Executive Summary</div>
+        <h2>A trophy asset for a market that has been waiting for one.</h2>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p class="lede">Saltwood &amp; Stone will be Australia's most considered hinterland hotel — a sixty-key estate two hours south of Sydney that competes, in product and price, with Saffire Freycinet, qualia, and the Baillie Lodges portfolio.</p>
+        <p>The Berry-Jamberoo hinterland sits inside the country's most affluent travel catchment yet contains no offering above four stars. The drive-up market within ninety minutes exceeds four million people, and the inbound market — North American, North Asian, and European — has, since 2023, been actively seeking experiential luxury in regional New South Wales.</p>
+        <p>The estate will be designed as a private compound: a restored homestead at its heart; pavilion suites tucked into the paddocks; a destination restaurant, working farm, spa house, and twenty-five-metre pool pavilion. The interior language is drawn from <em class="serif">Tamsin Johnson Interiors</em> — lime-washed plaster, travertine, raw linen, unlacquered brass, and a curated layer of vintage European furniture set against Australian native landscape.</p>
+        <p>We are seeking <em class="serif">A$155&nbsp;million</em> of project capital. Stabilised EBITDA is forecast at A$12.4&nbsp;million by year three, with an exit valuation of A$220–260&nbsp;million on a 7-to-10-year horizon.</p>
+      </div>
+
+      <div>
+        <div class="card">
+          <h4 style="color:var(--sienna);letter-spacing:.18em;text-transform:uppercase;font-size:11px">The figures, in short</h4>
+          <hr class="rule" style="margin:14px 0 22px"/>
+          <div class="stats">
+            <div class="stat"><span class="n">60</span><span class="l">Keys at stabilisation</span></div>
+            <div class="stat"><span class="n">$1,650<span class="small">avg</span></span><span class="l">Forecast ADR</span></div>
+            <div class="stat"><span class="n">68<span class="small">%</span></span><span class="l">Stabilised occupancy</span></div>
+            <div class="stat"><span class="n">$38.5m</span><span class="l">Total revenue, Yr&nbsp;3</span></div>
+            <div class="stat"><span class="n">$12.4m</span><span class="l">EBITDA, Yr&nbsp;3</span></div>
+            <div class="stat"><span class="n">$155m</span><span class="l">All-in CapEx</span></div>
+            <div class="stat"><span class="n">14–16<span class="small">%</span></span><span class="l">Target IRR</span></div>
+            <div class="stat"><span class="n">$2.0m</span><span class="l">Cost per key</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════════════════════
+     II. THE PLACE
+═════════════════════════════════════════════════════ -->
+<section id="place">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">II &nbsp;— &nbsp; The Place</div>
+      <div>
+        <div class="eyebrow">Berry · Jamberoo · Kangaroo Valley</div>
+        <h2>Soft country, three rivers, an escarpment, and the sea.</h2>
+      </div>
+    </div>
+
+    <div class="two-col" style="align-items:start">
+      <div>
+        <p class="lede">The South Coast hinterland is the closest thing Australia has to Tuscany or Provence — a thirty-kilometre band of green dairy country pressed between the Illawarra Escarpment and seven-mile beaches.</p>
+        <p>Berry is a town of antique stores, two-hat restaurants, an annual literary festival, and a population that has tripled in median income over the last decade. Jamberoo lies fifteen minutes north — quieter, set against Saddleback Mountain, with Minnamurra Rainforest on its doorstep. Kangaroo Valley is forty minutes inland, all stone bridges and waterfalls. Seven Mile Beach is fifteen minutes away.</p>
+        <p>The location offers what no other Australian luxury site can: a true <em class="serif">drive market</em>. Sydney is one hundred and forty kilometres north — a ninety-minute drive, or a thirty-minute helicopter transfer from the Eastern Suburbs. The South Coast has become, in the post-2020 era, the preferred weekend territory of the same Sydney households who built the holiday-house economies of Palm Beach and the Southern Highlands. They are now actively spending, and there is nowhere of the right calibre for them to stay.</p>
+      </div>
+
+      <div class="img-stack">
+        <div class="arch" aria-hidden="true">
+          <svg class="vignette" viewBox="0 0 400 540" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hsk" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#f1d9b8"/><stop offset=".7" stop-color="#c98a5e"/><stop offset="1" stop-color="#7d4528"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="540" fill="url(#hsk)"/>
+            <path d="M0,330 C70,310 150,335 240,322 C310,312 360,330 400,326 L400,420 L0,420 Z" fill="#7d6a4e"/>
+            <path d="M0,400 C90,388 200,420 300,398 C350,388 380,406 400,400 L400,540 L0,540 Z" fill="#3d3a2e"/>
+            <g opacity=".7">
+              <ellipse cx="60" cy="430" rx="22" ry="30" fill="#1f1d18"/>
+              <ellipse cx="340" cy="440" rx="18" ry="24" fill="#1f1d18"/>
+              <ellipse cx="210" cy="450" rx="14" ry="20" fill="#1f1d18"/>
+            </g>
+            <circle cx="290" cy="180" r="48" fill="#f3ece0" opacity=".95"/>
+          </svg>
+        </div>
+        <div class="arch short" aria-hidden="true">
+          <svg class="vignette" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#b9c4ad"/><stop offset="1" stop-color="#5b6a52"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="320" fill="#e7ddca"/>
+            <rect y="160" width="400" height="160" fill="url(#water)"/>
+            <path d="M0,170 Q200,150 400,170 L400,200 Q200,210 0,200 Z" fill="#8a8268" opacity=".4"/>
+            <path d="M0,260 Q200,250 400,260" stroke="#f3ece0" stroke-width="1" fill="none" opacity=".6"/>
+            <path d="M0,290 Q200,278 400,290" stroke="#f3ece0" stroke-width="1" fill="none" opacity=".5"/>
+            <!-- Stone bridge silhouette -->
+            <path d="M120,170 L120,130 Q130,110 160,108 Q200,106 240,108 Q270,110 280,130 L280,170 Z" fill="#3d3a2e" opacity=".88"/>
+            <circle cx="155" cy="150" r="14" fill="#e7ddca"/>
+            <circle cx="200" cy="146" r="16" fill="#e7ddca"/>
+            <circle cx="245" cy="150" r="14" fill="#e7ddca"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="three-col" style="margin-top:80px">
+      <div>
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">Catchment</h4>
+        <hr class="rule-short" style="margin-top:14px"/>
+        <p>4.1m people within a 90-minute drive. Greater Sydney median household income for the target postcodes (2027, 2028, 2030, 2088, 2095) sits 2.4× the national average.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">Access</h4>
+        <hr class="rule-short" style="margin-top:14px"/>
+        <p>90 min by car from Sydney CBD. 30 min by helicopter from Rose Bay. 25 min from Shellharbour Airport — direct daily services to Melbourne and Brisbane from 2025.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">Climate</h4>
+        <hr class="rule-short" style="margin-top:14px"/>
+        <p>Mild oceanic. 248 sunny days per year. No cyclone or bushfire-extreme zone overlay. Year-round operating envelope — no closed season.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════════════════════
+     III. THE VISION (DESIGN)
+═════════════════════════════════════════════════════ -->
+<section id="vision">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">III &nbsp;— &nbsp; The Vision</div>
+      <div>
+        <div class="eyebrow">Design Direction</div>
+        <h2>An estate, not a hotel. Tamsin Johnson's hand, at scale.</h2>
+      </div>
+    </div>
+
+    <div class="two-col" style="align-items:start">
+      <div>
+        <p class="lede">The brief to the design team is unambiguous: <em class="serif">Saltwood is a private estate that takes guests, not a hotel that imitates one.</em></p>
+        <p>The architectural mood is drawn from the working farms of the Illawarra and the agrarian villas of southern Italy. Long, low forms; deep eaves; lime-rendered walls in chalk and bone; standing-seam zinc roofs that have weathered to a matte silver. The hand of <em class="serif">Tamsin Johnson Interiors</em> runs through every room — antique Italian travertine on the floors, blackbutt and spotted gum beams overhead, vintage French and Belgian furniture set casually against custom pieces in oak and bouclé, art commissioned from Australian painters working in the same earthy register.</p>
+        <p>The palette is settled, not styled. Bone, oat, fawn, terracotta, faded olive, smoked oak. Unlacquered brass that will tarnish honestly. Limestone, hand-thrown ceramics, antique Berber and Anatolian rugs. Nothing shouts; everything has been chosen.</p>
+        <p>The landscape design — by an Australian practice with international hinterland experience — will lean on native grasses, lomandra, kangaroo paw, gum, and ironbark, with kitchen gardens and an olive grove in the central paddock.</p>
+      </div>
+
+      <div>
+        <!-- Mood board grid -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+          <!-- Swatch tiles -->
+          <div style="aspect-ratio:1;background:#e7ddca;border:1px solid var(--rule);display:flex;align-items:flex-end;padding:10px">
+            <span style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)">Bone Plaster</span>
+          </div>
+          <div style="aspect-ratio:1;background:#b85c38;display:flex;align-items:flex-end;padding:10px">
+            <span style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#f3ece0">Terracotta</span>
+          </div>
+          <div style="aspect-ratio:1;background:#8a8268;display:flex;align-items:flex-end;padding:10px">
+            <span style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#f3ece0">Faded Olive</span>
+          </div>
+          <div style="aspect-ratio:1;background:#c9b89a;display:flex;align-items:flex-end;padding:10px">
+            <span style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)">Travertine</span>
+          </div>
+          <div style="aspect-ratio:1;background:#8b6f47;display:flex;align-items:flex-end;padding:10px">
+            <span style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#f3ece0">Smoked Oak</span>
+          </div>
+          <div style="aspect-ratio:1;background:#3d3a2e;display:flex;align-items:flex-end;padding:10px">
+            <span style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#cdbfa5">Ironbark</span>
+          </div>
+          <!-- Texture tiles -->
+          <div style="aspect-ratio:1;background:
+            repeating-linear-gradient(45deg,#d4c5a8 0 6px,#c9b89a 6px 12px);"></div>
+          <div style="aspect-ratio:1;background:radial-gradient(circle at 30% 30%,#d6c0a0,#a08766);"></div>
+          <div style="aspect-ratio:1;background:#b85c38;background-image:
+            radial-gradient(rgba(45,42,36,.18) 1px,transparent 1px);background-size:6px 6px"></div>
+        </div>
+        <p class="muted" style="margin-top:18px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-align:center">Palette · materials · textures</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:60px;display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center">
+      <div class="quote">
+        "Rooms should feel as if they've been lived in for fifty years and just happen to be the best you've ever stayed&nbsp;in."
+        <span class="quote-author">Design Brief, January 2027</span>
+      </div>
+      <div>
+        <h4>Design partners under consideration</h4>
+        <p>Tamsin Johnson Interiors (Sydney) — lead interior architect, all guestrooms, public realm and homestead restoration. Atelier Andy Carson or William Smart (Sydney) — base building architecture. Sam Crawford Architects — adaptive reuse of the homestead. Myles Baldwin Design or Sam Cox Landscape — grounds and gardens.</p>
+        <p class="muted" style="font-size:14px">Final appointments subject to capital close and design competition (Q4 2027).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════════════════════
+     IV. THE PROPERTY
+═════════════════════════════════════════════════════ -->
+<section id="property">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">IV &nbsp;— &nbsp; The Property</div>
+      <div>
+        <div class="eyebrow">Schedule of Accommodation</div>
+        <h2>Sixty keys, four typologies, one estate.</h2>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p>The site brief calls for a working hinterland property of 60 to 120 hectares — large enough to hold the building program without compromising the sense of arrival, with at least one ridge line offering escarpment-to-sea views and an existing watercourse or dam. Three candidate parcels have been identified in the Berry and Jamberoo cadastres; due diligence is underway on the preferred site.</p>
+        <p>The accommodation program is deliberately weighted toward the upper categories. Half of all keys offer plunge pools or outdoor bathing pavilions. Every key has a fireplace, a private terrace, and a view of either the escarpment or the paddocks. No key sits adjacent to another's terrace.</p>
+      </div>
+      <div>
+        <table class="schedule">
+          <thead>
+            <tr><th>Keys</th><th>Typology</th><th>Size</th><th style="text-align:right">Lead ADR</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">28</td><td><strong>Paddock Suites</strong><br/><span class="muted">Standalone pavilion, fireplace, outdoor bath</span></td><td class="muted">72 m²</td><td class="adr">$1,250</td></tr>
+            <tr><td class="num">18</td><td><strong>Escarpment Suites</strong><br/><span class="muted">Elevated pavilion with plunge pool, butler pantry</span></td><td class="muted">110 m²</td><td class="adr">$1,750</td></tr>
+            <tr><td class="num">10</td><td><strong>Garden Villas</strong><br/><span class="muted">Two-bedroom, private courtyard, kitchen, day-bed pavilion</span></td><td class="muted">180 m²</td><td class="adr">$2,950</td></tr>
+            <tr><td class="num">3</td><td><strong>Homestead Suites</strong><br/><span class="muted">Within the restored 1880s homestead — heritage rooms</span></td><td class="muted">95 m²</td><td class="adr">$2,200</td></tr>
+            <tr><td class="num">1</td><td><strong>The Owner's Residence</strong><br/><span class="muted">Four-bedroom estate house, private staff, exclusive use</span></td><td class="muted">420 m²</td><td class="adr">$8,500</td></tr>
+            <tr><td class="num"><strong>60</strong></td><td><strong>Total</strong></td><td class="muted">avg 112 m²</td><td class="adr"><strong>$1,650 blended</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin-top:80px">
+      <div class="eyebrow">Amenities</div>
+      <h3 style="max-width:24ch">The estate's social architecture is built around five public houses.</h3>
+
+      <div class="three-col" style="margin-top:40px">
+        <div>
+          <h4>Stone &amp; Salt</h4>
+          <hr class="rule-short" style="margin-top:10px"/>
+          <p><strong>The destination restaurant.</strong> 70 covers in a converted cattle shed. A produce-driven menu under a chef-of-renown (target: a 2- or 3-hat Sydney operator opening their first regional kitchen). Open to non-resident guests on a limited basis.</p>
+        </div>
+        <div>
+          <h4>The Drawing Room</h4>
+          <hr class="rule-short" style="margin-top:10px"/>
+          <p><strong>The guest-only dining room and bar.</strong> Set within the restored homestead. Long-table breakfasts, all-day grazing, a fireside bar with a deep cellar of regional and European wine.</p>
+        </div>
+        <div>
+          <h4>Bathhouse</h4>
+          <hr class="rule-short" style="margin-top:10px"/>
+          <p><strong>The spa.</strong> Six treatment rooms, a 25-metre indoor pool, hammam and Nordic plunge sequence, vitality garden, and a partnership with an Australian botanical line. Resident wellness practitioner in residence.</p>
+        </div>
+        <div>
+          <h4>The Garden</h4>
+          <hr class="rule-short" style="margin-top:10px"/>
+          <p><strong>The working farm.</strong> Two hectares of kitchen garden, an olive grove, a small dairy, beehives, and a chef's table program with daily harvest walks. Supplies the restaurant.</p>
+        </div>
+        <div>
+          <h4>The Pool Pavilion</h4>
+          <hr class="rule-short" style="margin-top:10px"/>
+          <p><strong>The summer house.</strong> A 25-metre heated outdoor pool, cabanas, a daytime grill and bar, and an open-air cinema folded into the orchard for summer screenings.</p>
+        </div>
+        <div>
+          <h4>Excursions</h4>
+          <hr class="rule-short" style="margin-top:10px"/>
+          <p><strong>The concierge program.</strong> Helicopter transfers, escarpment walks, private surf instruction at Seven Mile, sailing from Greenwell Point, kayaking the Kangaroo Valley, riding on the estate's own horses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     INTERLUDE — pull quote
+═════════════════════════════════════════════════════ -->
+<div class="interlude">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+    <div>
+      <div class="eyebrow">The thesis, restated</div>
+      <h2>The closest analogue in the world is not in Australia.</h2>
+      <p style="max-width:48ch">It is the Tuscan agriturismo at Borgo Santo Pietro, or Belmond's Castello di Casole, or Heckfield Place in Hampshire — working estates re-imagined as private hotels with a six-figure ADR and a waiting list. Australia has the geography, the affluent catchment, and the produce. It does not yet have the estate.</p>
+      <p style="max-width:48ch">Saltwood is that estate.</p>
+    </div>
+    <div>
+      <div class="quote" style="color:#f3ece0;border-left:1px solid var(--sienna);padding-left:30px;max-width:38ch">
+        "The next decade of Australian luxury hospitality will be defined by hinterland properties within ninety minutes of a major&nbsp;city."
+        <span class="quote-author" style="color:#d49069">Hotel Investment Outlook, 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     V. COMPETITIVE POSITIONING
+═════════════════════════════════════════════════════ -->
+<section id="competition">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">V &nbsp;— &nbsp; Competitive Set</div>
+      <div>
+        <div class="eyebrow">Market Positioning</div>
+        <h2>Where Saltwood sits in the Australian luxury map.</h2>
+      </div>
+    </div>
+
+    <p class="max-prose" style="margin-bottom:30px">The Australian ultra-luxury segment is small — fewer than fifteen properties nationally that achieve a $1,500+ ADR. None of them sit on the NSW coast within easy reach of Sydney. The closest direct comparables are Halcyon House (Cabarita, 1,100 km north) and the Baillie Lodges portfolio (Tasmania, SA, NT).</p>
+
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Location</th>
+          <th>Keys</th>
+          <th>ADR (A$)</th>
+          <th>Drive from CBD</th>
+          <th>Positioning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="us">
+          <td><span class="name">Saltwood &amp; Stone</span></td>
+          <td>Berry / Jamberoo, NSW</td>
+          <td>60</td>
+          <td>$1,650</td>
+          <td>90 min from Sydney</td>
+          <td>Hinterland estate, design-led</td>
+        </tr>
+        <tr>
+          <td><span class="name">Saffire Freycinet</span></td>
+          <td>Coles Bay, TAS</td>
+          <td>20</td>
+          <td>$2,400 (all-incl.)</td>
+          <td>+ flight + 2.5 hr drive</td>
+          <td>Wilderness lodge, all-inclusive</td>
+        </tr>
+        <tr>
+          <td><span class="name">qualia</span></td>
+          <td>Hamilton Island, QLD</td>
+          <td>60</td>
+          <td>$1,850</td>
+          <td>+ flight + transfer</td>
+          <td>Tropical island pavilions</td>
+        </tr>
+        <tr>
+          <td><span class="name">Southern Ocean Lodge</span></td>
+          <td>Kangaroo Island, SA</td>
+          <td>25</td>
+          <td>$2,800 (all-incl.)</td>
+          <td>+ flight + 1 hr drive</td>
+          <td>Coastal wilderness lodge</td>
+        </tr>
+        <tr>
+          <td><span class="name">Longitude 131°</span></td>
+          <td>Uluru, NT</td>
+          <td>16</td>
+          <td>$3,500 (all-incl.)</td>
+          <td>+ flight + 30 min drive</td>
+          <td>Desert tented camp</td>
+        </tr>
+        <tr>
+          <td><span class="name">Halcyon House</span></td>
+          <td>Cabarita Beach, NSW</td>
+          <td>21</td>
+          <td>$1,200</td>
+          <td>+ flight + 30 min</td>
+          <td>Boutique beachside</td>
+        </tr>
+        <tr>
+          <td><span class="name">Capella Sydney</span></td>
+          <td>Sydney CBD, NSW</td>
+          <td>192</td>
+          <td>$1,400</td>
+          <td>—</td>
+          <td>Urban luxury</td>
+        </tr>
+        <tr>
+          <td><span class="name">Bannisters Mollymook</span></td>
+          <td>Mollymook, NSW</td>
+          <td>33</td>
+          <td>$650</td>
+          <td>3 hr from Sydney</td>
+          <td>Coastal boutique (4★)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="muted" style="margin-top:18px;font-size:13.5px;font-style:italic">ADR figures are 2026 industry-published rate-card averages, rounded. All-inclusive rates include meals, beverages, and core experiences.</p>
+
+    <div class="three-col" style="margin-top:60px">
+      <div>
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">The advantage</h4>
+        <hr class="rule-short" style="margin-top:14px"/>
+        <p><strong>Drive market.</strong> The only Australian property of this calibre that does not require a domestic flight. We capture two booking patterns simultaneously: the long-stay destination guest and the high-frequency Sydney weekender.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">The scale</h4>
+        <hr class="rule-short" style="margin-top:14px"/>
+        <p><strong>60 keys.</strong> Large enough to justify a destination restaurant, full spa, and resident programming. Small enough to retain genuine intimacy and exclusivity. This is the proven sweet spot — qualia, Cape Lodge, and Borgo Santo Pietro all operate at this scale.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">The brand</h4>
+        <hr class="rule-short" style="margin-top:14px"/>
+        <p><strong>Independent, with optional affiliation.</strong> Operated as a standalone brand with the option of soft affiliation (Leading Hotels of the World, Relais &amp; Châteaux) to access international distribution without dilution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════════════════════
+     VI. THE GUEST
+═════════════════════════════════════════════════════ -->
+<section id="guest">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">VI &nbsp;— &nbsp; The Guest</div>
+      <div>
+        <div class="eyebrow">Target Segments</div>
+        <h2>Three guests — two domestic, one international.</h2>
+      </div>
+    </div>
+
+    <div class="three-col">
+      <div class="card">
+        <div class="persona">
+          <div class="dot" style="background:var(--sienna)">I</div>
+          <div>
+            <h4>The Sydney Weekender</h4>
+            <p class="muted" style="font-size:13px;margin:0">40% of room nights</p>
+          </div>
+        </div>
+        <p style="margin-top:18px">Eastern Suburbs and Lower North Shore households, 38–58, $750k+ HHI. Books two or three short stays a year, often midweek. Drives down with a partner, returns on Sunday afternoon. Spends heavily on F&amp;B, spa, and the cellar.</p>
+        <p class="muted" style="font-size:13.5px"><em class="serif">Average stay:</em> 2.4 nights · <em class="serif">Repeat rate:</em> 2.1× per year</p>
+      </div>
+
+      <div class="card">
+        <div class="persona">
+          <div class="dot" style="background:var(--bronze)">II</div>
+          <div>
+            <h4>The Domestic Destination Guest</h4>
+            <p class="muted" style="font-size:13px;margin:0">35% of room nights</p>
+          </div>
+        </div>
+        <p style="margin-top:18px">Melbourne, Brisbane, Perth, and Auckland travellers, 45–65, planning a milestone stay. Books a Villa or Escarpment Suite for four to seven nights, often around a celebration. Books experiences in advance. The qualia and Saffire crossover guest.</p>
+        <p class="muted" style="font-size:13.5px"><em class="serif">Average stay:</em> 4.6 nights · <em class="serif">Repeat rate:</em> 1.3× per year</p>
+      </div>
+
+      <div class="card">
+        <div class="persona">
+          <div class="dot" style="background:var(--olive)">III</div>
+          <div>
+            <h4>The Inbound Discoverer</h4>
+            <p class="muted" style="font-size:13px;margin:0">25% of room nights</p>
+          </div>
+        </div>
+        <p style="margin-top:18px">North American, North Asian, and European travellers, 40–70, often pairing the estate with a Sydney stay and a Tasmania or Outback leg. Found via Relais &amp; Châteaux, Virtuoso, and the editorial press. Highest ADR cohort.</p>
+        <p class="muted" style="font-size:13.5px"><em class="serif">Average stay:</em> 3.2 nights · <em class="serif">Repeat rate:</em> 0.4× per year</p>
+      </div>
+    </div>
+
+    <div style="margin-top:60px" class="card">
+      <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">Ancillary revenue</h4>
+      <hr class="rule" style="margin:14px 0 22px"/>
+      <p>Resort guests at this tier spend approximately <em class="serif">70% of room revenue</em> on ancillary services. The estate is designed to capture that spend on-property: a 70-cover destination restaurant, two bars, the spa, retail and wine programs, private events, and experience packages. Modeled non-rooms revenue at year three: <em class="serif">A$14m</em>.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════════════════════
+     VII. FINANCIALS
+═════════════════════════════════════════════════════ -->
+<section id="financials">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">VII &nbsp;— &nbsp; The Numbers</div>
+      <div>
+        <div class="eyebrow">Pro-Forma Summary</div>
+        <h2>The economics, three years to stabilisation.</h2>
+      </div>
+    </div>
+
+    <p class="max-prose" style="margin-bottom:30px">A summary five-year pro-forma is presented below; a fully modeled, sensitivity-tested workbook accompanies this document. Year one reflects a soft opening from May with 40% blended occupancy ramping monthly; year three is the modeled stabilised year.</p>
+
+    <div class="proforma">
+      <div class="h">Line item</div>
+      <div class="h" style="text-align:right">Year 1</div>
+      <div class="h" style="text-align:right">Year 2</div>
+      <div class="h" style="text-align:right">Year 3 (stab.)</div>
+
+      <div class="label">Occupancy</div>
+      <div class="v">42%</div>
+      <div class="v">58%</div>
+      <div class="v">68%</div>
+
+      <div class="label">Blended ADR</div>
+      <div class="v">$1,450</div>
+      <div class="v">$1,560</div>
+      <div class="v">$1,650</div>
+
+      <div class="label">Rooms revenue</div>
+      <div class="v">$13.3m</div>
+      <div class="v">$19.8m</div>
+      <div class="v">$24.6m</div>
+
+      <div class="label">Food &amp; beverage</div>
+      <div class="v">$4.4m</div>
+      <div class="v">$6.8m</div>
+      <div class="v">$8.1m</div>
+
+      <div class="label">Spa &amp; wellness</div>
+      <div class="v">$1.8m</div>
+      <div class="v">$2.9m</div>
+      <div class="v">$3.5m</div>
+
+      <div class="label">Experiences, retail, events</div>
+      <div class="v">$1.3m</div>
+      <div class="v">$2.0m</div>
+      <div class="v">$2.3m</div>
+
+      <div class="label total"><strong>Total revenue</strong></div>
+      <div class="v total"><strong>$20.8m</strong></div>
+      <div class="v total"><strong>$31.5m</strong></div>
+      <div class="v total"><strong>$38.5m</strong></div>
+
+      <div class="label">Gross operating profit</div>
+      <div class="v">$5.8m</div>
+      <div class="v">$11.0m</div>
+      <div class="v">$15.4m</div>
+
+      <div class="label">GOP margin</div>
+      <div class="v">28%</div>
+      <div class="v">35%</div>
+      <div class="v">40%</div>
+
+      <div class="label">Less FF&amp;E reserve (3%)</div>
+      <div class="v">($0.6m)</div>
+      <div class="v">($0.9m)</div>
+      <div class="v">($1.2m)</div>
+
+      <div class="label">Less mgmt &amp; insurance</div>
+      <div class="v">($1.4m)</div>
+      <div class="v">($1.6m)</div>
+      <div class="v">($1.8m)</div>
+
+      <div class="label total"><strong>EBITDA</strong></div>
+      <div class="v total"><strong>$3.8m</strong></div>
+      <div class="v total"><strong>$8.5m</strong></div>
+      <div class="v total"><strong>$12.4m</strong></div>
+    </div>
+
+    <div class="two-col" style="margin-top:80px;align-items:start">
+      <div>
+        <h3>Capital requirement</h3>
+        <hr class="rule-short"/>
+        <table class="schedule" style="margin-top:0">
+          <tbody>
+            <tr><td>Land acquisition (80 ha target)</td><td class="adr">$24m</td></tr>
+            <tr><td>Site works &amp; infrastructure</td><td class="adr">$14m</td></tr>
+            <tr><td>Homestead restoration</td><td class="adr">$8m</td></tr>
+            <tr><td>Guestroom construction (60 keys)</td><td class="adr">$78m</td></tr>
+            <tr><td>Public buildings &amp; back-of-house</td><td class="adr">$16m</td></tr>
+            <tr><td>FF&amp;E and operating supplies</td><td class="adr">$9m</td></tr>
+            <tr><td>Pre-opening &amp; working capital</td><td class="adr">$6m</td></tr>
+            <tr><td><strong>Total project cost</strong></td><td class="adr"><strong>$155m</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="muted" style="font-size:13.5px;margin-top:18px">All figures in A$, inclusive of contingencies of approx. 8%.</p>
+      </div>
+
+      <div>
+        <h3>Returns &amp; exit</h3>
+        <hr class="rule-short"/>
+        <p>The base case assumes 70% senior debt at 7.0%, 30% equity. Stabilised EBITDA of $12.4m supports a debt service of approximately $7.6m, leaving $4.8m of free cash to equity in year three rising to $7.5m by year five as the property matures and ADR compounds at 3–4% annually.</p>
+        <p>Australian trophy resort assets have transacted at <em class="serif">18–24× stabilised EBITDA</em> over the last cycle (Saffire, qualia, Capella Lodge, Lizard Island). At 18×, exit valuation is <em class="serif">A$223m</em>; at 22×, <em class="serif">A$273m</em>.</p>
+        <p>Target equity IRR of <em class="serif">14–16%</em> over a seven-to-ten-year hold, with a 2.4× equity multiple in the base case.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════════════════════
+     VIII. ROADMAP
+═════════════════════════════════════════════════════ -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">VIII &nbsp;— &nbsp; The Path</div>
+      <div>
+        <div class="eyebrow">Development Timeline</div>
+        <h2>From land to lobby in thirty-six months.</h2>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="timeline">
+          <div class="phase">
+            <div class="when">Q3 2026 — Phase 0</div>
+            <h4>Capital close &amp; site control</h4>
+            <p>Final equity commitments. Exchange on preferred parcel. Heritage and ecological assessments commenced.</p>
+          </div>
+          <div class="phase">
+            <div class="when">Q1–Q3 2027 — Phase 1</div>
+            <h4>Design competition &amp; DA</h4>
+            <p>Architectural competition. Tamsin Johnson Interiors engaged as design lead. Development Application lodged with Shoalhaven and Kiama Councils.</p>
+          </div>
+          <div class="phase">
+            <div class="when">Q4 2027 — Phase 2</div>
+            <h4>Construction certificate &amp; works begin</h4>
+            <p>Civil works commence. Homestead restoration begins. Long-lead procurement.</p>
+          </div>
+          <div class="phase">
+            <div class="when">2028 — Phase 3</div>
+            <h4>Build</h4>
+            <p>Vertical construction of all 60 keys and public buildings. Landscape and farm establishment in parallel.</p>
+          </div>
+          <div class="phase">
+            <div class="when">Q1 2029 — Phase 4</div>
+            <h4>FF&amp;E and pre-opening</h4>
+            <p>Installation and styling. General Manager and Executive Chef onboarded. Brand launch.</p>
+          </div>
+          <div class="phase">
+            <div class="when">May 2029 — Phase 5</div>
+            <h4>Soft opening</h4>
+            <p>Friends-and-family residencies. Limited public availability. Full operations from August 2029.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3>Risk register, summarised</h3>
+        <hr class="rule-short"/>
+        <p><strong>Planning risk.</strong> Mitigated by early heritage and traffic assessment, low-density paddock pavilion typology, and active local engagement. Three candidate sites maintained until DA in hand.</p>
+        <p><strong>Construction risk.</strong> Fixed-price head contract with a tier-one regional builder; contingency of 8% within the $155m budget; staged drawdown.</p>
+        <p><strong>Demand risk.</strong> Mitigated by drive-market exposure (less sensitive than fly-in resorts to international cycle), independent brand with affiliation optionality, and three diversified guest segments.</p>
+        <p><strong>Operating risk.</strong> Pre-opening engagement of an experienced GM (target: a senior alumnus of Baillie Lodges, Aman, or COMO) twelve months ahead of opening.</p>
+        <p><strong>Climate risk.</strong> Site selection avoids bushfire-extreme and flood-prone overlays. Building envelope designed to BAL-29; all guest pavilions are detached masonry-and-zinc.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════════════════════
+     IX. THE ASK
+═════════════════════════════════════════════════════ -->
+<section id="ask">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">IX &nbsp;— &nbsp; The Ask</div>
+      <div>
+        <div class="eyebrow">Capital Structure</div>
+        <h2>A$46.5 million of equity, alongside committed senior debt.</h2>
+      </div>
+    </div>
+
+    <div class="two-col" style="align-items:start">
+      <div>
+        <p class="lede">We are inviting a club of three to five aligned investors to subscribe alongside the founding sponsors for the A$46.5m equity tranche.</p>
+        <p>The capital structure is: 70% senior debt ($108.5m) on a 10-year term at an indicative 7.0% all-in cost, supported by stabilised cover of 1.5×; 30% equity ($46.5m), of which the founding sponsors will subscribe for approximately one-third. The remainder is being placed with strategic limited partners — family offices and institutional capital with a hospitality or coastal real-asset thesis.</p>
+        <p>The structure includes a 6% preferred return to equity, an 8/20 promote above the hurdle, and standard tag-along, ROFO, and pre-emption rights at exit. Minimum ticket: A$2.5m.</p>
+      </div>
+
+      <div class="card">
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">Use of equity proceeds</h4>
+        <hr class="rule" style="margin:14px 0 22px"/>
+        <table class="schedule" style="margin:0">
+          <tbody>
+            <tr><td>Land deposit &amp; settlement</td><td class="adr">$24.0m</td></tr>
+            <tr><td>Site works &amp; pre-construction</td><td class="adr">$8.5m</td></tr>
+            <tr><td>Design &amp; consultant fees</td><td class="adr">$6.5m</td></tr>
+            <tr><td>Pre-opening &amp; working capital</td><td class="adr">$6.0m</td></tr>
+            <tr><td>Interest reserve (construction)</td><td class="adr">$1.5m</td></tr>
+            <tr><td><strong>Total equity</strong></td><td class="adr"><strong>$46.5m</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     CLOSING
+═════════════════════════════════════════════════════ -->
+<div class="interlude" style="margin-top:0">
+  <div class="wrap center">
+    <div class="eyebrow" style="color:#d49069">In closing</div>
+    <h2 style="max-width:18ch;margin:0 auto 30px">A property of this kind is built once in a generation.</h2>
+    <p style="max-width:50ch;margin:0 auto">Australia has the affluent travel market, the produce, the climate, the design talent, and — in the Berry-Jamberoo hinterland — the geography. What it lacks is the estate. Saltwood &amp; Stone is our proposal to build it.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     FOOTER
+═════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="signature">Saltwood &amp; Stone</div>
+        <p class="muted" style="margin-top:14px;max-width:36ch">A proposal for a sixty-key hinterland hotel on the South Coast of New South Wales.</p>
+        <span class="confidential" style="margin-top:8px">Confidential — May 2026</span>
+      </div>
+      <div>
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">Contact</h4>
+        <hr class="rule" style="margin:14px 0"/>
+        <p style="font-size:14.5px">Founding Sponsors<br/><span class="muted">care of the project secretariat</span></p>
+        <p style="font-size:14.5px">By appointment only.<br/><span class="muted">Reply to the sender of this document.</span></p>
+      </div>
+      <div>
+        <h4 style="color:var(--sienna);text-transform:uppercase;letter-spacing:.18em;font-size:11px">Notes</h4>
+        <hr class="rule" style="margin:14px 0"/>
+        <p style="font-size:13.5px" class="muted">This document is a non-binding outline prepared for the purpose of initial discussion. All financial figures are forecasts based on industry benchmarks and are subject to due diligence. The name &ldquo;Saltwood &amp; Stone&rdquo; is a working title. Design partner references are aspirational and subject to formal appointment.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>
