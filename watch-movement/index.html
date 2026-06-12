@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Swiss Watch Movement — 3D Model</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0b0d12; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  #app { position: fixed; inset: 0; }
+  .panel {
+    position: fixed; z-index: 10; color: #e8e6df;
+    backdrop-filter: blur(8px); background: rgba(18,20,27,.62);
+    border: 1px solid rgba(255,255,255,.08); border-radius: 12px;
+    padding: 14px 16px; box-shadow: 0 8px 30px rgba(0,0,0,.45);
+  }
+  #title { top: 16px; left: 16px; max-width: 320px; }
+  #title h1 { margin: 0 0 4px; font-size: 16px; letter-spacing: .3px; font-weight: 650; }
+  #title p { margin: 4px 0 0; font-size: 12px; line-height: 1.5; color: #aab0bd; }
+  #legend { bottom: 16px; left: 16px; font-size: 12px; line-height: 1.7; }
+  #legend .row { display: flex; align-items: center; gap: 8px; }
+  #legend .sw { width: 12px; height: 12px; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); }
+  #controls { top: 16px; right: 16px; display: flex; flex-direction: column; gap: 8px; }
+  #controls button {
+    appearance: none; cursor: pointer; color: #e8e6df; font-size: 12px; font-weight: 550;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
+    border-radius: 9px; padding: 8px 12px; transition: background .15s, transform .05s;
+  }
+  #controls button:hover { background: rgba(255,255,255,.13); }
+  #controls button:active { transform: translateY(1px); }
+  #controls button.on { background: #c8a24a; border-color: #d8b768; color: #20160a; }
+  #hint { bottom: 16px; right: 16px; font-size: 11px; color: #8b91a0; }
+  a { color: #d8b768; text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<div id="title" class="panel">
+  <h1>Swiss Lever Watch Movement</h1>
+  <p>A mechanical wristwatch caliber: the mainspring barrel drives the going
+  train, regulated by a lever escapement and an oscillating balance wheel
+  (the heartbeat, ~4&nbsp;Hz). Drag to orbit · scroll to zoom.</p>
+</div>
+
+<div id="controls" class="panel">
+  <button id="btnExplode">Exploded view</button>
+  <button id="btnSpin" class="on">Running</button>
+  <button id="btnBridges" class="on">Bridges</button>
+</div>
+
+<div id="legend" class="panel">
+  <div class="row"><span class="sw" style="background:#c8a24a"></span>Gilt brass — wheels &amp; bridges</div>
+  <div class="row"><span class="sw" style="background:#7f8895"></span>Hardened steel — pinions, lever, screws</div>
+  <div class="row"><span class="sw" style="background:#5b6ed8"></span>Blued steel — hairspring &amp; balance</div>
+  <div class="row"><span class="sw" style="background:#d23b4e"></span>Ruby jewels — pivot bearings</div>
+</div>
+
+<div id="hint" class="panel">Three.js · single-file model</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+// ---------------------------------------------------------------------------
+// Renderer / scene / camera
+// ---------------------------------------------------------------------------
+const app = document.getElementById('app');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+app.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0b0d12);
+
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 2000);
+camera.position.set(28, 34, 46);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.07;
+controls.minDistance = 22;
+controls.maxDistance = 140;
+controls.target.set(0, 2, 0);
+
+// ---------------------------------------------------------------------------
+// Lighting
+// ---------------------------------------------------------------------------
+scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+
+const key = new THREE.DirectionalLight(0xfff4e0, 2.4);
+key.position.set(24, 40, 22);
+key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048);
+key.shadow.camera.near = 10; key.shadow.camera.far = 130;
+key.shadow.camera.left = -32; key.shadow.camera.right = 32;
+key.shadow.camera.top = 32; key.shadow.camera.bottom = -32;
+key.shadow.bias = -0.00035;
+scene.add(key);
+
+const rim = new THREE.DirectionalLight(0x88aaff, 0.8);
+rim.position.set(-30, 18, -26);
+scene.add(rim);
+
+const fill = new THREE.PointLight(0xffd9a0, 0.6, 200);
+fill.position.set(-10, 14, 26);
+scene.add(fill);
+
+// soft ground to catch a shadow
+const ground = new THREE.Mesh(
+  new THREE.CircleGeometry(120, 64),
+  new THREE.ShadowMaterial({ opacity: 0.32 })
+);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -3.2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// ---------------------------------------------------------------------------
+// Materials
+// ---------------------------------------------------------------------------
+const matBrass = new THREE.MeshStandardMaterial({ color: 0xc8a24a, metalness: 1.0, roughness: 0.28 });
+const matBrassDark = new THREE.MeshStandardMaterial({ color: 0xb08a36, metalness: 1.0, roughness: 0.34 });
+const matPlate = new THREE.MeshStandardMaterial({ color: 0xb9963f, metalness: 1.0, roughness: 0.42 });
+const matSteel = new THREE.MeshStandardMaterial({ color: 0x9aa3b0, metalness: 1.0, roughness: 0.18 });
+const matSteelDark = new THREE.MeshStandardMaterial({ color: 0x6f7785, metalness: 1.0, roughness: 0.25 });
+const matBlued = new THREE.MeshStandardMaterial({ color: 0x4a5fd6, metalness: 0.95, roughness: 0.22 });
+const matRuby = new THREE.MeshPhysicalMaterial({
+  color: 0xd23b4e, metalness: 0.0, roughness: 0.08,
+  transmission: 0.55, thickness: 1.2, ior: 1.76, clearcoat: 1.0
+});
+
+// ---------------------------------------------------------------------------
+// The whole movement lives in this group (laid flat, dial side down)
+// ---------------------------------------------------------------------------
+const movement = new THREE.Group();
+movement.rotation.x = -Math.PI / 2;   // turn it face-up toward the camera
+scene.add(movement);
+
+const animated = [];   // { obj, speed }  -> spun every frame
+const layers = [];     // { obj, z }      -> for exploded view
+
+function shadowify(mesh) { mesh.castShadow = true; mesh.receiveShadow = true; return mesh; }
+
+// ---------------------------------------------------------------------------
+// Procedural involute-style gear
+// ---------------------------------------------------------------------------
+function gearShape(teeth, pitchR, toothH, holeR) {
+  const rTip  = pitchR + toothH * 0.55;
+  const rRoot = pitchR - toothH * 0.55;
+  const shape = new THREE.Shape();
+  const seg = teeth;
+  for (let i = 0; i < seg; i++) {
+    const a0 = (i / seg) * Math.PI * 2;
+    const p = Math.PI * 2 / seg;        // angular pitch
+    // tooth profile: root -> rising flank -> tip land -> falling flank
+    const pts = [
+      [a0 + p * 0.00, rRoot],
+      [a0 + p * 0.16, rRoot],
+      [a0 + p * 0.30, rTip],
+      [a0 + p * 0.50, rTip],
+      [a0 + p * 0.64, rRoot],
+      [a0 + p * 0.84, rRoot],
+    ];
+    for (const [a, r] of pts) {
+      const x = Math.cos(a) * r, y = Math.sin(a) * r;
+      if (i === 0 && a === a0) shape.moveTo(x, y); else shape.lineTo(x, y);
+    }
+  }
+  shape.closePath();
+  if (holeR > 0) {
+    const hole = new THREE.Path();
+    hole.absarc(0, 0, holeR, 0, Math.PI * 2, true);
+    shape.holes.push(hole);
+  }
+  return shape;
+}
+
+function makeGear(opts) {
+  const {
+    teeth, pitchR, thickness = 0.55, toothH = pitchR * 0.16, holeR = pitchR * 0.18,
+    material = matBrass, spokes = 5, z = 0, x = 0, y = 0, speed = 0,
+    pinionTeeth = 0, pinionR = pitchR * 0.22, hubR = pitchR * 0.3
+  } = opts;
+
+  const g = new THREE.Group();
+  g.position.set(x, y, z);
+
+  // wheel blank with teeth
+  const geo = new THREE.ExtrudeGeometry(
+    gearShape(teeth, pitchR, toothH, holeR),
+    { depth: thickness, bevelEnabled: true, bevelThickness: 0.06, bevelSize: 0.06, bevelSegments: 1, curveSegments: 2 }
+  );
+  geo.translate(0, 0, -thickness / 2);
+  const wheel = shadowify(new THREE.Mesh(geo, material));
+  g.add(wheel);
+
+  // crossing-out: lighten the wheel with spoke cut-outs (decorative arms)
+  if (spokes > 0) {
+    const hub = shadowify(new THREE.Mesh(
+      new THREE.CylinderGeometry(hubR, hubR, thickness + 0.08, 24), material));
+    hub.rotation.x = Math.PI / 2;
+    g.add(hub);
+    for (let i = 0; i < spokes; i++) {
+      const arm = shadowify(new THREE.Mesh(
+        new THREE.BoxGeometry(pitchR * 0.86, thickness + 0.05, pitchR * 0.12), material));
+      arm.rotation.z = (i / spokes) * Math.PI * 2;
+      g.add(arm);
+    }
+  }
+
+  // steel pinion on top of the wheel (drives the next wheel up the train)
+  if (pinionTeeth > 0) {
+    const pg = new THREE.ExtrudeGeometry(
+      gearShape(pinionTeeth, pinionR, pinionR * 0.34, pinionR * 0.32),
+      { depth: thickness * 1.6, bevelEnabled: false, curveSegments: 2 });
+    pg.translate(0, 0, thickness * 0.4);
+    g.add(shadowify(new THREE.Mesh(pg, matSteel)));
+  }
+
+  // arbor (pivot axle) + ruby jewel underneath
+  const arbor = shadowify(new THREE.Mesh(
+    new THREE.CylinderGeometry(holeR * 0.6, holeR * 0.6, thickness * 3.2, 16), matSteel));
+  arbor.rotation.x = Math.PI / 2;
+  g.add(arbor);
+
+  if (speed) animated.push({ obj: g, speed });
+  movement.add(g);
+  layers.push({ obj: g, z });
+  return g;
+}
+
+// ---------------------------------------------------------------------------
+// Main plate (base) with perlage-ish look + jewel sinks
+// ---------------------------------------------------------------------------
+const plateGeo = new THREE.CylinderGeometry(15.5, 15.5, 1.4, 96);
+const plate = shadowify(new THREE.Mesh(plateGeo, matPlate));
+plate.rotation.x = Math.PI / 2;
+plate.position.z = -1.2;
+movement.add(plate);
+layers.push({ obj: plate, z: -1.2 });
+
+// jewel chatons (ruby bearings) scattered at pivot points
+function jewel(x, y, z, r = 0.55) {
+  const j = new THREE.Group();
+  const chaton = shadowify(new THREE.Mesh(
+    new THREE.CylinderGeometry(r * 1.7, r * 1.7, 0.5, 20), matBrass));
+  chaton.rotation.x = Math.PI / 2;
+  const stone = shadowify(new THREE.Mesh(
+    new THREE.CylinderGeometry(r, r, 0.52, 20), matRuby));
+  stone.rotation.x = Math.PI / 2;
+  j.add(chaton, stone);
+  j.position.set(x, y, z);
+  movement.add(j);
+  layers.push({ obj: j, z });
+  return j;
+}
+
+// ---------------------------------------------------------------------------
+// Screw helper
+// ---------------------------------------------------------------------------
+function screw(x, y, z, r = 0.55) {
+  const s = new THREE.Group();
+  const head = shadowify(new THREE.Mesh(
+    new THREE.CylinderGeometry(r, r, 0.5, 18), matSteel));
+  head.rotation.x = Math.PI / 2;
+  const slot = shadowify(new THREE.Mesh(
+    new THREE.BoxGeometry(r * 2, 0.16, 0.18), matSteelDark));
+  slot.position.z = 0.26;
+  s.add(head, slot);
+  s.position.set(x, y, z);
+  s.rotation.z = Math.random() * Math.PI;
+  movement.add(s);
+  layers.push({ obj: s, z });
+  return s;
+}
+
+// ---------------------------------------------------------------------------
+// The going train.  Speeds are signed (meshing wheels turn opposite ways)
+// and scaled to look like a real gear reduction.
+// ---------------------------------------------------------------------------
+
+// Mainspring barrel — biggest wheel, slowest. Houses the coiled spring.
+const barrel = makeGear({
+  teeth: 60, pitchR: 7.2, thickness: 1.6, holeR: 1.1, material: matBrassDark,
+  spokes: 0, x: -5.5, y: 5.0, z: 1.4, speed: 0.18, pinionTeeth: 0
+});
+// drum wall + coiled mainspring inside the barrel
+const drum = shadowify(new THREE.Mesh(
+  new THREE.CylinderGeometry(6.4, 6.4, 1.5, 64, 1, true), matBrass));
+drum.rotation.x = Math.PI / 2;
+barrel.add(drum);
+{
+  const pts = [];
+  const turns = 9;
+  for (let i = 0; i <= 360 * turns; i += 6) {
+    const a = i * Math.PI / 180;
+    const r = 1.4 + (a / (Math.PI * 2)) * 0.52;
+    pts.push(new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r, 0));
+  }
+  const spring = new THREE.Mesh(
+    new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), pts.length, 0.07, 6, false),
+    matBlued);
+  barrel.add(spring);
+}
+
+// Center wheel (carries minute hand) — meshes with barrel
+makeGear({ teeth: 48, pitchR: 4.6, x: 2.2, y: 1.8, z: 1.4, speed: -0.55,
+           pinionTeeth: 9, material: matBrass, spokes: 4 });
+
+// Third wheel
+makeGear({ teeth: 40, pitchR: 3.7, x: 7.6, y: -2.0, z: 1.9, speed: 1.1,
+           pinionTeeth: 8, material: matBrass, spokes: 4 });
+
+// Fourth wheel (carries seconds hand) — turns once per minute
+makeGear({ teeth: 36, pitchR: 3.2, x: 3.4, y: -7.2, z: 1.4, speed: -2.4,
+           pinionTeeth: 8, material: matBrass, spokes: 4 });
+
+// Escape wheel — pointed "club" teeth, ticks the lever
+const escape = makeGear({ teeth: 15, pitchR: 2.2, toothH: 1.2, holeR: 0.45,
+           x: -1.6, y: -8.4, z: 1.6, speed: 0, pinionTeeth: 7, material: matSteel, spokes: 0 });
+
+// ---------------------------------------------------------------------------
+// Pallet fork (lever) — rocks back and forth, locking the escape wheel
+// ---------------------------------------------------------------------------
+const lever = new THREE.Group();
+lever.position.set(-6.4, -7.4, 2.4);
+movement.add(lever);
+layers.push({ obj: lever, z: 2.4 });
+{
+  const body = shadowify(new THREE.Mesh(new THREE.BoxGeometry(5.6, 0.7, 0.5), matSteelDark));
+  body.position.x = 1.4;
+  lever.add(body);
+  // fork slot end (toward balance)
+  const fork = shadowify(new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.7, 0.5), matSteelDark));
+  fork.position.set(4.0, 0, 0);
+  lever.add(fork);
+  // two pallet-jewel arms toward the escape wheel
+  for (const s of [-1, 1]) {
+    const arm = shadowify(new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.5, 0.45), matSteelDark));
+    arm.position.set(-0.4, s * 1.0, 0);
+    arm.rotation.z = s * 0.5;
+    lever.add(arm);
+    const pj = shadowify(new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), matRuby));
+    pj.position.set(-1.1, s * 1.4, 0);
+    lever.add(pj);
+  }
+  const pivot = shadowify(new THREE.Mesh(
+    new THREE.CylinderGeometry(0.3, 0.3, 1.2, 12), matSteel));
+  pivot.rotation.x = Math.PI / 2;
+  lever.add(pivot);
+}
+
+// ---------------------------------------------------------------------------
+// Balance wheel + hairspring — the regulating oscillator (sits highest)
+// ---------------------------------------------------------------------------
+const balanceHub = new THREE.Group();
+balanceHub.position.set(-9.2, -2.2, 3.4);
+movement.add(balanceHub);
+layers.push({ obj: balanceHub, z: 3.4 });
+
+const balance = new THREE.Group();
+balanceHub.add(balance);
+{
+  // rim
+  const rimMesh = shadowify(new THREE.Mesh(
+    new THREE.TorusGeometry(3.3, 0.42, 14, 60), matBlued));
+  balance.add(rimMesh);
+  // two spokes + center
+  for (let i = 0; i < 2; i++) {
+    const arm = shadowify(new THREE.Mesh(new THREE.BoxGeometry(6.6, 0.4, 0.4), matBlued));
+    arm.rotation.z = i * Math.PI / 2;
+    balance.add(arm);
+  }
+  const hub = shadowify(new THREE.Mesh(
+    new THREE.CylinderGeometry(0.55, 0.55, 1.0, 16), matSteel));
+  hub.rotation.x = Math.PI / 2;
+  balance.add(hub);
+  // timing screws around the rim
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    const sc = shadowify(new THREE.Mesh(
+      new THREE.CylinderGeometry(0.32, 0.32, 0.9, 10), matSteel));
+    sc.position.set(Math.cos(a) * 3.3, Math.sin(a) * 3.3, 0);
+    balance.add(sc);
+  }
+  // hairspring — flat blued-steel spiral above the wheel
+  const hp = [];
+  for (let i = 0; i <= 360 * 5.5; i += 8) {
+    const a = i * Math.PI / 180;
+    const r = 0.5 + (a / (Math.PI * 2)) * 0.42;
+    hp.push(new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r, 0.9));
+  }
+  balance.add(new THREE.Mesh(
+    new THREE.TubeGeometry(new THREE.CatmullRomCurve3(hp), hp.length, 0.06, 6, false),
+    matBlued));
+}
+
+// ---------------------------------------------------------------------------
+// Crown + winding stem on the edge of the plate
+// ---------------------------------------------------------------------------
+{
+  const stem = shadowify(new THREE.Mesh(
+    new THREE.CylinderGeometry(0.5, 0.5, 9, 16), matSteel));
+  stem.rotation.z = Math.PI / 2;
+  stem.position.set(17, 4.5, 0.4);
+  movement.add(stem);
+  const crown = shadowify(new THREE.Mesh(
+    new THREE.CylinderGeometry(2.1, 2.1, 2.2, 28), matBrass));
+  crown.rotation.z = Math.PI / 2;
+  crown.position.set(22, 4.5, 0.4);
+  movement.add(crown);
+  // knurling
+  for (let i = 0; i < 24; i++) {
+    const a = (i / 24) * Math.PI * 2;
+    const ridge = shadowify(new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.18, 0.5), matBrass));
+    ridge.position.set(22, 4.5 + Math.cos(a) * 2.1, 0.4 + Math.sin(a) * 2.1);
+    ridge.rotation.x = a;
+    movement.add(ridge);
+  }
+  layers.push({ obj: stem, z: 0.4 });
+  layers.push({ obj: crown, z: 0.4 });
+}
+
+// ---------------------------------------------------------------------------
+// Bridges (top plates) — organic shapes that hold the upper pivots.
+// Toggleable so you can see the train underneath.
+// ---------------------------------------------------------------------------
+const bridges = new THREE.Group();
+movement.add(bridges);
+layers.push({ obj: bridges, z: 3.0 });
+
+function bridgePiece(points, z, thick = 0.9, mat = matPlate) {
+  const shape = new THREE.Shape();
+  points.forEach((p, i) => i ? shape.lineTo(p[0], p[1]) : shape.moveTo(p[0], p[1]));
+  shape.closePath();
+  const geo = new THREE.ExtrudeGeometry(shape, {
+    depth: thick, bevelEnabled: true, bevelThickness: 0.18, bevelSize: 0.18, bevelSegments: 2 });
+  geo.translate(0, 0, z);
+  const m = shadowify(new THREE.Mesh(geo, mat));
+  bridges.add(m);
+  return m;
+}
+
+// train bridge (covers third/fourth/escape region)
+bridgePiece([
+  [10.5, 1.5], [9.0, -4.5], [5.0, -9.5], [0.5, -10.5], [-3.5, -9.5],
+  [-2.5, -6.0], [2.0, -4.0], [5.0, 0.0], [7.5, 3.0]
+], 2.6);
+// balance cock (bridge over the balance wheel)
+bridgePiece([
+  [-13.5, -2.2], [-12.5, -6.5], [-8.0, -7.0], [-5.0, -4.0],
+  [-5.5, 0.5], [-9.0, 2.0], [-12.5, 1.5]
+], 4.6, 0.8, matPlate);
+
+// screws fixing the bridges
+[[8.5, 2.0, 3.6], [0.5, -9.2, 3.6], [-12.0, -5.0, 5.6], [-5.5, -0.5, 5.6],
+ [13.5, 9.5, 0.5], [-13.5, 9.5, 0.5], [0, -14, 0.5]].forEach(([x, y, z]) => screw(x, y, z));
+
+// a few decorative jewels at upper pivots
+jewel(7.6, -2.0, 3.4, 0.5);
+jewel(3.4, -7.2, 3.4, 0.5);
+jewel(-1.6, -8.4, 3.0, 0.45);
+jewel(-9.2, -2.2, 5.4, 0.55);
+
+// store base positions for exploded view
+layers.forEach(l => { l.obj.userData.baseZ = l.obj.position.z; });
+
+// ---------------------------------------------------------------------------
+// Interaction state
+// ---------------------------------------------------------------------------
+let exploded = false, running = true, showBridges = true;
+const btnExplode = document.getElementById('btnExplode');
+const btnSpin = document.getElementById('btnSpin');
+const btnBridges = document.getElementById('btnBridges');
+
+btnExplode.onclick = () => { exploded = !exploded; btnExplode.classList.toggle('on', exploded); };
+btnSpin.onclick = () => { running = !running; btnSpin.classList.toggle('on', running);
+                          btnSpin.textContent = running ? 'Running' : 'Stopped'; };
+btnBridges.onclick = () => { showBridges = !showBridges; bridges.visible = showBridges;
+                             btnBridges.classList.toggle('on', showBridges); };
+
+// ---------------------------------------------------------------------------
+// Animation
+// ---------------------------------------------------------------------------
+const clock = new THREE.Clock();
+let escapeAngle = 0, lastTick = 0;
+
+function tick() {
+  const dt = clock.getDelta();
+  const t = clock.elapsedTime;
+
+  if (running) {
+    for (const a of animated) a.obj.rotation.z += a.speed * dt;
+
+    // balance oscillates ~ a few Hz; hairspring & balance move together
+    const beat = 5.0;
+    balance.rotation.z = 1.15 * Math.sin(t * beat * Math.PI);
+    // lever rocks with the balance, locking/unlocking the escape wheel
+    lever.rotation.z = 0.22 * Math.sin(t * beat * Math.PI + Math.PI);
+    // escape wheel advances one step on each beat (the "tick")
+    if (t - lastTick > 1 / beat) { escapeAngle -= (Math.PI * 2) / 15; lastTick = t; }
+    escape.rotation.z += (escapeAngle - escape.rotation.z) * Math.min(1, dt * 18);
+  }
+
+  // exploded-view interpolation along the movement's local Z (stack axis)
+  for (const l of layers) {
+    const target = exploded ? l.obj.userData.baseZ * 3.4 + 2 : l.obj.userData.baseZ;
+    l.obj.position.z += (target - l.obj.position.z) * Math.min(1, dt * 6);
+  }
+
+  controls.update();
+  renderer.render(scene, camera);
+  requestAnimationFrame(tick);
+}
+tick();
+
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+</body>
+</html>
